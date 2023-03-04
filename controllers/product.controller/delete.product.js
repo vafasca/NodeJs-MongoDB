@@ -4,13 +4,11 @@ var router = express.Router();
 const Product = require('../../models/products.model');
 
 /* POST users listing. */
-router.post('/product', async (req, res, next) => {
+router.delete('/product/:id', async (req, res, next) => {
   try {
-    const {name, price, details} = req.body;
-    const product = new Product({name, price, details});
-    const data = await product.save();
+    const data = await Product.findOneAndDelete(req.params.id);
     res.json({
-      message: "User created",
+      message: "Product deleted",
       data
     })
   } catch (error) {

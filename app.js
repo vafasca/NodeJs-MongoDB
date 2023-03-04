@@ -19,22 +19,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//const productRoutes = require('./controllers/product.controller/product.routes');
+app.use('/', require('./controllers/product.controller/product.routes'));
+
 //GET /api/v1/products
-app.use('/api/v1', require('./controllers/products/get.products'));
+// app.use('/api/v1', require('./controllers/product.controller/get.products'));
 
-//GET /api/v1/product:id
-// app.use('/api/v1', require('./controllers/products/get.product'));
+// //GET /api/v1/product/:id
+// app.use('/api/v1', require('./controllers/product.controller/get.product'));
 
-// //POST /api/v1/product
-app.use('/api/v1', require('./controllers/products/post.product'));
+// // //POST /api/v1/product
+// app.use('/api/v1', require('./controllers/product.controller/post.product'));
 
-// //PUT /api/v1/product:id
-// app.use('/api/v1', require('./controllers/products/put.product'));
+// // //PUT /api/v1/product/:id
+// app.use('/api/v1', require('./controllers/product.controller/put.product'));
 
-// //PATCH /api/v1/product:id
-// app.use('/api/v1', require('./controllers/products/patch.product'));
+// // //PATCH /api/v1/product:id
+// app.use('/api/v1', require('./controllers/product.controller/patch.product'));
 
-// //DELETE /api/v1/product:id
-// app.use('/api/v1', require('./controllers/products/delete.product'));
+// // //DELETE /api/v1/product:id
+// app.use('/api/v1', require('./controllers/product.controller/delete.product'));
 
 module.exports = app;
